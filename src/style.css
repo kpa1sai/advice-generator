@@ -1,0 +1,6 @@
+body{
+    box-sizing: border-box;
+    background-color: hsl(218, 23%, 16%);
+    display: flex;
+    justify-content: center;
+}
