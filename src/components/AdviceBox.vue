@@ -1,7 +1,9 @@
 <template>
     <div class="box">
         <h5>Advice #{{adviceId}}</h5>
-        <p>"{{adviceMessage}}"</p>
+        <div class="line">
+            <p>"{{adviceMessage}}"</p>
+        </div>
         <button class="btn" @click="getAdvice()"><img class="icon" src="../assets/icon-dice.svg" alt="Random"/> </button>
     </div>
 </template>
@@ -19,7 +21,7 @@ export default{
         this.getAdvice();
     },
     methods: {
-        getAdvice(){
+        async getAdvice(){
             axios.get('https://api.adviceslip.com/advice')
             .then(response => (
             this.adviceId=response.data.slip.id,
@@ -34,6 +36,10 @@ export default{
 h5{
     color: hsl(150, 100%, 66%);
 }
+.line{
+    width: 100%;
+    border-bottom: 2px solid;
+}
 .icon{
     margin-top: 16px;
 }
@@ -46,7 +52,7 @@ h5{
     justify-content: center;
     align-items: center;
     padding: 20px;
-    width: 400px;
+    width: max-content;
 }
 .btn{
     background-color: hsl(150, 100%, 66%);
